@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+* main -prints a specific sentence using puts
+*
+* Return: 0 (Success)
+*/
 int main(void)
 {
 puts("\"Programming is like building a multilingual puzzle");
