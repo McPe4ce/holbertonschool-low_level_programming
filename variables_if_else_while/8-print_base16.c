@@ -12,6 +12,9 @@ int main(void)
 	for (annoyingV2 = '30'; annoyingV2 <= '39'; annoyingV2++)
 	putchar(annoyingV2);
 
+	for (annoyingV2 = 'a'; annoyingV2 <= 'f'; annoyingV2++)
+	putchar(annoyingV2);
+
 	putchar('\n');
 	return (0);
 }
