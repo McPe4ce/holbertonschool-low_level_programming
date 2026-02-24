@@ -1,6 +1,11 @@
 #include <stdio.h>
+/**
+* main - Script that prints the numbers from 0 to 9 in base 16
+* Return: 0 (Success)
+*/
 
-int main(void){
+int main(void)
+{
 
 	int annoyingV2;
 
