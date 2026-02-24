@@ -14,7 +14,7 @@ int main(void)
 	{
 		_putchar(str[i_die]);
 	}
-	
+
 	_putchar('\n');
 
 	return (0);
