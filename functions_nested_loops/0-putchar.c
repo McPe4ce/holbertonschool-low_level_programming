@@ -7,7 +7,9 @@
  */
 int main(void)
 {
-    char str[] = "_putchar";
-    printf("%s\n", str);
-    return (0);
+	char str[] = "_putchar";
+
+	printf("%s\n", str);
+
+	return (0);
 }
