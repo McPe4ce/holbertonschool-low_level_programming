@@ -7,7 +7,7 @@
 int main(void)
 {
 	int annoying;
-	
+
 	for (annoying = 0; annoying < 10; annoying++)
 		putchar('0' + annoying);
 
