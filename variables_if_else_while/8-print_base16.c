@@ -9,7 +9,7 @@ int main(void)
 
 	int annoyingV2;
 
-	for (annoyingV2 = '30'; annoyingV2 <= '39'; annoyingV2++)
+	for (annoyingV2 = '0'; annoyingV2 <= '9'; annoyingV2++)
 	putchar(annoyingV2);
 
 	for (annoyingV2 = 'a'; annoyingV2 <= 'f'; annoyingV2++)
