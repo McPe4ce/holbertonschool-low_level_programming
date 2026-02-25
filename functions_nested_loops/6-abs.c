@@ -8,9 +8,11 @@
 
 int _abs(int)
 {
-	if (n < 0)
+	int AbsolX
+
+	if (AbsolX < 0)
 	{
-		return (-n);
+		return (-AbsolX);
 	}
-	return (n);
+	return (AbsolX);
 }
