@@ -11,7 +11,7 @@ void print_most_numbers(void)
 	{
 		if (nono24 != 2 && nono24 != 4)
 		{
-			_putchar(nono24 + '0')
+			_putchar(nono24 + '0');
 		}
 		_putchar('\n');
 	}
