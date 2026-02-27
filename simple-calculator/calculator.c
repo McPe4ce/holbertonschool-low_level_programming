@@ -12,7 +12,7 @@ int main(void)
 	printf("Press SPACE key and ENTER to start the menu: ");
 	scanf("%c", &presskey);
 
-	if (presskey = ' ')
+	if (presskey == ' ')
 
 	{
 		printf("SIMPLE CALCULATOR\n");
