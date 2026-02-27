@@ -23,7 +23,7 @@ int main(void)
 		{
 			printf("Buzz ");
 		}
-		else if (multi = 100)
+		else if (multi == 100)
 		{
 			printf("Buzz");
 		}
