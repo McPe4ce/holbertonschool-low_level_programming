@@ -7,13 +7,16 @@ int main(void)
 	int feed_me_more;
 	int obiONE;
 	int obiTWO;
+	float divided;
+	int diviD;
+	int general;
+	int grievous;
 
 	printf("Welcome to my calculator that calculates with calculations :)\n");
 	printf("Press SPACE key and ENTER to start the menu: ");
 	scanf("%c", &presskey);
 
 	if (presskey == ' ')
-
 	{
 		printf("SIMPLE CALCULATOR\n");
 		putchar('\n');
@@ -67,6 +70,22 @@ int main(void)
 
 			feed_me_more = obiONE * obiTWO;
 			printf("Result: %d\n", feed_me_more);
+			}
+		else if (menuwu == 4)
+			{
+			printf("Enter your first number: ");
+			scanf("%d", &general);
+
+			printf("Enter your second number: ");
+			scanf("%d", &grievous);
+
+				if (grievous == 0)
+				{
+					printf("Divide by 0 in big 2026, really?");
+					return(0);
+				}
+			divided = (float)general / grievous;
+			printf("Result: %.2f\n", divided);
 			}
 	}
 	return(0);
