@@ -69,7 +69,5 @@ int main(void)
 			printf("Result: %d\n", feed_me_more);
 			}
 	}
-	else
 	return(0);
 }
-
