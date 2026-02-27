@@ -19,13 +19,13 @@ int main(void)
 		{
 			printf("Fizz ");
 		}
-		else if (multi % 5 == 0)
-		{
-			printf("Buzz ");
-		}
 		else if (multi == 100)
 		{
 			printf("Buzz");
+		}
+		else if (multi % 5 == 0)
+		{
+			printf("Buzz ");
 		}
 		else
 		printf("%d ", multi);
