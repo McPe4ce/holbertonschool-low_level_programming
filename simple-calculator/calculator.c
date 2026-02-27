@@ -8,7 +8,6 @@ int main(void)
 	int obiONE;
 	int obiTWO;
 	float divided;
-	int diviD;
 	int general;
 	int grievous;
 
