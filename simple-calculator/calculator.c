@@ -15,6 +15,13 @@ int main(void)
 	printf("Press SPACE key and ENTER to start the menu: ");
 	scanf("%c", &presskey);
 
+	if (presskey != ' ')
+	{
+	printf("I SAID SPACE AND ENTER WHY ARE U PRESSING \"%s\"\n", &presskey);
+	printf("May the force be with you next time\n");
+	return(0);
+	}
+
 	if (presskey == ' ')
 	{
 		printf("SIMPLE CALCULATOR\n");
@@ -83,9 +90,16 @@ int main(void)
 					printf("Divide by 0 in big 2026, really?");
 					return(0);
 				}
-			divided = (float)general / grievous;
+			divided = (double)general / grievous;
+
+			if (divided == (int) divided)
+			{
+				printf("Result: %d\n", (int) divided);
+			}
+			else
+			{
 			printf("Result: %.2f\n", divided);
 			}
+			}
 	}
-	return(0);
 }
