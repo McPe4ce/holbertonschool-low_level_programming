@@ -27,5 +27,4 @@ Single Pass: 0.00002933 seconds
 
 Comparisons:
 
-Naive implementation gradually becomes longer
-Single Pass on its end, starts really fast, then is the longest and then becomes a bit quicker than 2nd.
+Single pass is 23 647 times faster
