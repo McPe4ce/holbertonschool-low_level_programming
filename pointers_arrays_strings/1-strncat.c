@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * _strcat - Bricks two strings together until it reaches n bytes
+ * _strncat - Bricks two strings together until it reaches n bytes
  * @dest: String that will receive the src string
  * @src: Variable that stores the string
+ * @n: Variable that holds the value to stop the string
  * Return: start (prints the string)
  */
 char *_strncat(char *dest, char *src, int n)
