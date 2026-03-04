@@ -1,24 +1,24 @@
 #include "main.h"
 
 /**
- * _string_toupper - Converts lowercase characters with uppercase
+ * string_toupper - Converts lowercase characters with uppercase
  * TIPS in ASCII, lower letters are separated by 32 chars from
- * upper letters. Thats why we substract 'a' from 'A' to find 
+ * upper letters. Thats why we substract 'a' from 'A' to find
  * the value of pSTR.
  * @str: Variable that stores the string of characters
  * Return: str (Prints the string in uppercase)
  */
 char *string_toupper(char *str)
 {
-	char *pSTR = str;
+	char *start = str;
 
 	while (*str)
 	{
-		if (*pSTR >= 'a' && *pSTR <= 'z')
-		*pSTR = *pSTR - ('a' - 'A');
+		if (*str >= 'a' && *str <= 'z')
+			*str -= ('a' - 'A');
 
-		pSTR++;
-
+		str++;
 	}
-	return (str);
+
+	return (start);
 }
