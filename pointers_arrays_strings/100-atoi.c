@@ -4,6 +4,7 @@
  * _atoi - Converts a string to integers (means it will display
  * only the integers)
  * @s: Variable that stored the string
+ * Return: toal * sign (Number that will print)
  */
 int _atoi(char *s)
 {
@@ -19,13 +20,13 @@ int _atoi(char *s)
 			found_you = 1;
 			total = (total * 10) + (s[index] - '0');
 		}
-		else if (sign[index] == '+')
+		else if (s[index] == '+')
 		{
 			sign *= 1;
 		}
-		else if (sign[index] == '-')
+		else if (s[index] == '-')
 		{
-			sign *= 1
+			sign *= 1;
 		}
 		else if (found_you == 1)
 		{
