@@ -8,11 +8,11 @@
 char *cap_string(char *str)
 {
 	char *start = str;
-	int upperCUT = 0;
+	int upperCUT = 1;
 
 	while (*str != '\0')
 	{
-		if (*str >= 'a' && *str <= 'z')
+		if (*str >= 'a' && *str <= 'z' && upperCUT)
 		{
 		*str -= ('a' - 'A');
 		upperCUT = 0;
