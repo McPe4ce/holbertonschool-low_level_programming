@@ -26,7 +26,7 @@ int _atoi(char *s)
 		}
 		else if (s[index] == '-')
 		{
-			sign *= 1;
+			sign *= -1;
 		}
 		else if (found_you == 1)
 		{
