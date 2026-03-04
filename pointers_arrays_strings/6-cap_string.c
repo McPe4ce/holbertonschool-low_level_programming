@@ -8,11 +8,11 @@
 char *cap_string(char *str)
 {
 	char *start = str;
-	int upperCUT;
+	int upperCUT = 0;
 
 	while (*str != '\0')
 	{
-		if (str >= 'a' && str <= 'Z')
+		if (*str >= 'a' && *str <= 'z')
 		{
 		*str -= ('a' - 'A');
 		upperCUT = 0;
@@ -26,7 +26,7 @@ char *cap_string(char *str)
 			*str == '!' ||
 			*str == '?' ||
 			*str == '"' ||
-			*str == '()' ||
+			*str == '(' ||
 			*str == ')' ||
 			*str == '{' ||
 			*str == '}')
