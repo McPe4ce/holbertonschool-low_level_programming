@@ -12,7 +12,7 @@ char *_strstr(char *haystack, char *needle)
 	int index;
 	int dedex;
 
-	if (needle[0] != '\0')
+	if (needle[0] == '\0')
 	{
 		return (haystack);
 	}
