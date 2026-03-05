@@ -12,7 +12,7 @@ void print_chessboard(char (*a)[8])
 
 	for (index = 0; index < 8; index++)
 	{
-		for (dedex = 0; index < 8; dedex++)
+		for (dedex = 0; dedex < 8; dedex++)
 
 		_putchar(a[index][dedex]);
 	}
