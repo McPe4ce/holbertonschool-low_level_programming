@@ -10,20 +10,20 @@
  */
 char *_strpbrk(char *s, char *accept)
 {
-    char *a;
+	char *a;
 
-    while (*s)
-    {
-        a = accept;
+	while (*s)
+	{
+		a = accept;
 
-        while (*a)
-        {
-            if (*s == *a)
-                return (s);
-            a++;
-        }
-        s++;
-    }
+		while (*a)
+		{
+			if (*s == *a)
+				return (s);
+			a++;
+		}
+		s++;
+	}
 
-    return (NULL);
+	return (NULL);
 }
