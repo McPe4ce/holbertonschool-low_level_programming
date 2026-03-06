@@ -6,10 +6,9 @@
  * @argv: Array that contains the strings of characters that are arguments
  * Return: 0 (Success)
  */
-int main(int argc, char **argv)
+char main(char **argv)
 {
 	printf("%s\n", argv[0]);
-	printf("There are %d arguments\n", argc);
 
 	return (0);
 }
