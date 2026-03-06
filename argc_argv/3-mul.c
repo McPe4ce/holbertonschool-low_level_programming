@@ -13,8 +13,8 @@ int main(int argc, char **argv)
 	int first_nb;
 	int second_nb;
 	int result;
-	
-	  if (argc != 3)
+
+	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
 	first_nb = atoi(argv[1]);
 	second_nb = atoi(argv[2]);
-	
+
 	(void)argc;
 	result = first_nb * second_nb;
 	printf("%d\n", result);
