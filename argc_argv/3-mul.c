@@ -14,6 +14,12 @@ int main(int argc, char **argv)
 	int second_nb;
 	int result;
 	
+	  if (argc != 3)
+	{
+		printf("Error\n");
+		return (1);
+	}
+
 	first_nb = atoi(argv[1]);
 	second_nb = atoi(argv[2]);
 	
