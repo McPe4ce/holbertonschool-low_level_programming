@@ -8,9 +8,9 @@
 
 void swap_int(int *a, int *b)
 {
-	int help;
+	int help;					//Variable that stores the value of a before being swapped
 
 	help = *a;
-	*a = *b;
-	*b = help;
+	*a = *b;					//Value pointed by a becomes the one pointed by b
+	*b = help;					//Value pointed by b becomes the one stored in help (so originally a)
 }

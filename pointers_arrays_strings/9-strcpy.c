@@ -11,9 +11,9 @@ char *_strcpy(char *dest, char *src)
 {
 	int index = 0;
 
-	while (src[index] != '\0')
+	while (src[index] != '\0')			//As long as the index didnt reach the NULL character
 	{
-		dest[index] = src[index];
+		dest[index] = src[index];		//dest takes the same value as src
 		index++;
 	}
 	dest[index] = '\0';

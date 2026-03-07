@@ -12,23 +12,23 @@ char *_strstr(char *haystack, char *needle)
 	int index;
 	int dedex;
 
-	if (needle[0] == '\0')
+	if (needle[0] == '\0')										// Check if the needle is an empty string
 	{
-		return (haystack);
+		return (haystack);										// If needle is empty, return haystack
 	}
 
-	for (index = 0; haystack[index] != '\0'; index++)
+	for (index = 0; haystack[index] != '\0'; index++)			//Index starts at 0, as long as the value pointed by haystack is different than NULL, move 1 block
 	{
-		for (dedex = 0; needle[dedex] != '\0'; dedex++)
+		for (dedex = 0; needle[dedex] != '\0'; dedex++)			//Dedex starts at 0, as long as the value pointed by needle is different than NULL, move 1 block
 		{
-			if (haystack[index + dedex] != needle[dedex])
+            if (haystack[index + dedex] != needle[dedex])		//If characters don't match, break out of loop
 			{
 				break;
 			}
 		}
-		if (needle[dedex] == '\0')
+		if (needle[dedex] == '\0')                				//If we reached end of needle, substring found
 		{
-			return (&haystack[index]);
+			return (&haystack[index]);        					//Return pointer to start of substring in haystack
 		}
 	}
 	return (NULL);

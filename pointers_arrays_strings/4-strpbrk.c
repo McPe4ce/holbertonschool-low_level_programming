@@ -13,18 +13,18 @@ char *_strpbrk(char *s, char *accept)
 {
 	char *a;
 
-	while (*s)
+	while (*s)					//As long as there is a value in the s string
 	{
-		a = accept;
+		a = accept;				//Variable a stores the values in the accept string
 
-		while (*a)
+		while (*a)				//Loops in the a(ccept) string 
 		{
-			if (*s == *a)
-				return (s);
-			a++;
+			if (*s == *a)		//If it finds the same character in s and a
+				return (s);		//Prints the character found
+			a++;				//Moves 1 block
 		}
-		s++;
+		s++;					//Moves 1 block (before searching again in the a string)
 	}
 
-	return (NULL);
+	return (NULL);				//If nothing is found, returns NULL
 }

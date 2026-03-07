@@ -6,10 +6,10 @@
  */
 void _puts(char *str)
 {
-	while (*str != '\0')
+	while (*str != '\0')			//As long as the value pointed in the string isnt NULL
 	{
-		_putchar(*str);
-		str++;
+		_putchar(*str);				//Prints the value
+		str++;						//Moves 1 block
 	}
-	_putchar('\n');
+	_putchar('\n');					//Returns the string
 }

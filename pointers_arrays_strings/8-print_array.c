@@ -14,7 +14,7 @@ void print_array(int *a, int n)
 	{
 		printf("%d", a[index]);
 
-		if (index != n - 1)
+		if (index != n - 1)  //Each time after printing an int, if the next block isnt equal to n, add a ','
 		{
 			printf(", ");
 		}

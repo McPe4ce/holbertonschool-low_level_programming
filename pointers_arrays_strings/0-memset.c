@@ -9,12 +9,12 @@
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int index = 0;
+	unsigned int index = 0;					//Unsigned because @n can be negative
 
-	while (index < n)
+	while (index < n)						//As long as index doesnt reach @n 
 	{
-		s[index] = b;
-		index++;
+		s[index] = b;						//The character @b will fill @s 
+		index++;							// Index will move 1 block
 	}
 	return (s);
 }

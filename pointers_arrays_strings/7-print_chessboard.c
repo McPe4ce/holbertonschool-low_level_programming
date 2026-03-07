@@ -14,7 +14,8 @@ void print_chessboard(char (*a)[8])
 	{
 		for (dedex = 0; dedex < 8; dedex++)
 		{
-		_putchar(a[index][dedex]);
+        // Print the character at row 'index' and column 'dedex' of the chessboard
+        _putchar(a[index][dedex]);
 		}
 	_putchar('\n');
 	}

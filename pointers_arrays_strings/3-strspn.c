@@ -11,23 +11,23 @@ unsigned int _strspn(char *s, char *accept)
 	unsigned int count = 0;
 	char *a;
 
-	while (*s)
+	while (*s)				//As long as s points a value
 	{
-		a = accept;
+		a = accept;			//A stores the base values that are in accept string
 
-		while (*a)
+		while (*a)			//Loops in the a(ccept) string
 		{
-			if (*s == *a)
-				break;
-			a++;
+			if (*s == *a)	//If it finds the same character in s and a
+				break;		//Exit the loop
+			a++;			//Move 1 block
 		}
 
-		if (*a == '\0')
+		if (*a == '\0')		//If there are no characters matching, exits the loop
 			break;
 
-		count++;
+		count++;			//Moves 1 block
 		s++;
 	}
 
-	return (count);
+	return (count);			//When it reached the end of s, prints how many similar char are in it
 }

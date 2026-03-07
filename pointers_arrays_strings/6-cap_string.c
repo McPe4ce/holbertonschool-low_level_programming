@@ -7,17 +7,17 @@
  */
 char *cap_string(char *str)
 {
-	char *start = str;
-	int upperCUT = 1;
+	char *start = str; 					//Pointer to start of string
+	int upperCUT = 1; 					//Flag to capitalize next letter
 
-	while (*str != '\0')
+	while (*str != '\0') 				//Loop through string
 	{
-		if (*str >= 'a' && *str <= 'z' && upperCUT)
+		if (*str >= 'a' && *str <= 'z' && upperCUT) 				//If lowercase and flag set
 		{
-		*str -= ('a' - 'A');
-		upperCUT = 0;
+		*str -= ('a' - 'A'); 										//Convert to uppercase
+		upperCUT = 0; 												//Reset flag
 		}
-		else if
+		else if														//Checks for separators
 			(*str == ' ' ||
 			*str == '\t' ||
 			*str == '\n' ||
@@ -31,13 +31,13 @@ char *cap_string(char *str)
 			*str == '{' ||
 			*str == '}')
 		{
-			upperCUT = 1;
+			upperCUT = 1; 											//Set flag to capitalize next
 		}
-		else
+		else 														//Any other character
 		{
-		upperCUT = 0;
+		upperCUT = 0; 												//Reset flag
 		}
-		str++;
+		str++; 														//Move to next character
 	}
 	return (start);
 }

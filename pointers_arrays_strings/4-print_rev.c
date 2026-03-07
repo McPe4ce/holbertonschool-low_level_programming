@@ -12,16 +12,16 @@ void print_rev(char *s)
 {
 	int index = 0;
 
-	while (s[index] != '\0')
+	while (s[index] != '\0')			//As long as the value in s isnt NULL
 	{
-		index++;
+		index++;						//Move 1 block 
 	}
-	index--;
+	index--;							//When it reaches the NULL char, decrease the index cursor by 1
 
-	while (index >= 0)
+	while (index >= 0)					//As long as index didnt reach 0
 	{
-		_putchar(s[index]);
-		index--;
+		_putchar(s[index]);				//Prints the value that it points
+		index--;						//Decreases its value by 1
 	}
-	_putchar('\n');
+	_putchar('\n');						//New line
 }
