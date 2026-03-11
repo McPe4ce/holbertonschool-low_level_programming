@@ -1,11 +1,12 @@
 #include "dog.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stddef.h>
 
 /**
  * new_dog - Function that copies a struct and some of its values
  * struct dog - Structure that stores the dog data
- * @d: pointer to struct dog to initialise
+ * d: pointer to struct dog to initialise
  * @name: Name of the dog
  * @age: Age of the dog
  * @owner: Owner of the dog
