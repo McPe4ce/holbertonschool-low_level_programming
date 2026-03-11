@@ -2,7 +2,10 @@
 #define DOG_H
 
 /**
- * dog - Structure that stores the data of a dog
+ * struct dog - Structure that stores the data of a dog
+ * @name: name of the dog
+ * @age: age of the dog
+ * @owner: owner of the dog
  */
 struct dog
 {
