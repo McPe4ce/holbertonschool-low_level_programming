@@ -4,9 +4,7 @@
 #include <stddef.h>
 
 /**
- * new_dog - Function that copies a struct and some of its values
- * struct dog - Structure that stores the dog data
- * d: pointer to struct dog to initialise
+ * new_dog - Function that creates a new dog
  * @name: Name of the dog
  * @age: Age of the dog
  * @owner: Owner of the dog
@@ -19,12 +17,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (name == NULL || owner == NULL)
 		return (NULL);
 
-		nv_dog = malloc(sizeof(dog_t));
-	
+	nv_dog = malloc(sizeof(dog_t));
+
 	if (nv_dog == NULL)
 		return (NULL);
-	
-		nv_dog->name = malloc(strlen(name) + 1);
+
+	nv_dog->name = malloc(strlen(name) + 1);
 
 	if (nv_dog->name == NULL)
 	{
