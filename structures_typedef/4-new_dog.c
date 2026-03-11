@@ -10,20 +10,21 @@
  * @name: Name of the dog
  * @age: Age of the dog
  * @owner: Owner of the dog
+ * Return: nv_dog (Success)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *nv_dog = malloc(sizeof(dog_t));
+	dog_t *nv_dog;
 
-	if (nv_dog == NULL)
-	{
-		return (NULL);
-	}
 	if (name == NULL || owner == NULL)
-	{
 		return (NULL);
-	}
-	nv_dog->name = malloc(strlen(name) + 1);
+
+		nv_dog = malloc(sizeof(dog_t));
+	
+	if (nv_dog == NULL)
+		return (NULL);
+	
+		nv_dog->name = malloc(strlen(name) + 1);
 
 	if (nv_dog->name == NULL)
 	{
