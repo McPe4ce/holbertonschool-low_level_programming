@@ -4,12 +4,21 @@
 
 /**
  * new_dog - Function that copies a struct and some of its values
+ * struct dog - Structure that stores the dog data
+ * @d: pointer to struct dog to initialise
+ * @name: Name of the dog
+ * @age: Age of the dog
+ * @owner: Owner of the dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *nv_dog = malloc(sizeof(dog_t));
 
 	if (nv_dog == NULL)
+	{
+		return (NULL);
+	}
+	if (name == NULL || owner == NULL)
 	{
 		return (NULL);
 	}
