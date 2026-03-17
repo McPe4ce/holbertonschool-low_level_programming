@@ -1,0 +1,74 @@
+#include "variadic_functions.h"
+#include <stdlib.h>
+#include <stdarg.h>
+#include <stdio.h>
+
+
+typedef struct str_type
+{
+char specifier;
+void (*fn)(va_list *, char *);
+} the_type;
+
+/**
+ * print_char - prints a char argument
+ * @parguments: variadic list
+ * @separator: separator to print first
+ */
+static void print_char(va_list *parguments, char *separator)
+{
+printf("%s%c", separator, va_arg(*parguments, int));
+}
+
+/**
+ * print_int - prints an int argument
+ * @parguments: variadic list
+ * @separator: separator to print first
+ */
+static void print_int(va_list *parguments, char *separator)
+{
+printf("%s%d", separator, va_arg(*parguments, int));
+}
+
+/**
+ * print_float - prints a float argument
+ * @parguments: variadic list
+ * @separator: separator to print first
+ */
+static void print_float(va_list *parguments, char *separator)
+{
+printf("%s%f", separator, va_arg(*parguments, double));
+}
+
+/**
+ * print_str - prints a string argument
+ * @parguments: variadic list
+ * @separator: separator to print first
+ */
+static void print_str(va_list *parguments, char *separator)
+{
+char *str;
+
+str = va_arg(*parguments, char *);
+
+if (str == NULL)
+{
+str = "(nil)";
+}
+printf("%s%s", separator, str);
+}
+
+/**
+ * print_all - prints anything according to format specifiers
+ * @format: list of types to print
+ */
+void print_all(const char * const format, ...)
+{
+    the_type
+    {
+        {"%c", print_char};
+        {"%d", print_int};
+        {"%f", print_float};
+        {"%s", print_str};
+    }
+}
