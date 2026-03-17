@@ -73,15 +73,14 @@ void print_all(const char * const format, ...)
 	while (format && format[index])
 	{
 		dedex = 0;
-		while (array[dedex].specifier && array[dedex].specifier != format[index])
+		while (array[dedex].specifier)
 		{
-			dedex++;
-
 			if (array[dedex].specifier == format[index])
 			{
 			array[dedex].fn(&parguments, separator);
 			separator = ", ";
 			}
+			dedex++;
 		}
 		index++;
 	}
