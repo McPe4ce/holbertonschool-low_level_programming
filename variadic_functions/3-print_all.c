@@ -77,7 +77,7 @@ void print_all(const char * const format, ...)
 		{
 			dedex++;
 
-			if (array[dedex].specifier)
+			if (array[dedex].specifier == format[index])
 			{
 			array[dedex].fn(&parguments, separator);
 			separator = ", ";
