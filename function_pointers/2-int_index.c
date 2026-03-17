@@ -6,6 +6,7 @@
  * @array: The array
  * @size: Size of the array
  * @cmp: Function that points to the integer we need
+ * Return: -1 (No elements matched)
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
@@ -21,5 +22,5 @@ int int_index(int *array, int size, int (*cmp)(int))
 
 			return (index);
 	}
-	return(-1);
+	return (-1);
 }
