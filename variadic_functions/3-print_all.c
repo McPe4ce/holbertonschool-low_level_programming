@@ -64,11 +64,36 @@ printf("%s%s", separator, str);
  */
 void print_all(const char * const format, ...)
 {
-    the_type
+    va_list parguments;
+    int index = 0;
+    int dedex = 0;
+    char *separator = "";
+
+    the_type array[] =
     {
-        {"%c", print_char};
-        {"%d", print_int};
-        {"%f", print_float};
-        {"%s", print_str};
+        {'c', print_char},
+        {'i', print_int},
+        {'f', print_float},
+        {'s', print_str},
+        {0, NULL}
+    };
+    
+    va_start(parguments, format);
+
+    while (format && format[index])
+    {
+        while (array[dedex].specifier && array[dedex].specifier != format[index])
+        {
+            dedex++;
+
+            if (array[dedex].specifier)
+            {
+                array[dedex].fn(&parguments, &separator);
+                separator = ", ";
+            }
+        }
+        index++;
     }
+    printf("\n");
+    va_end(parguments);
 }
