@@ -1,14 +1,6 @@
 #include "variadic_functions.h"
-#include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-
-
-typedef struct str_type
-{
-char specifier;
-void (*fn)(va_list *, char *);
-} the_type;
 
 /**
  * print_char - prints a char argument
@@ -17,7 +9,7 @@ void (*fn)(va_list *, char *);
  */
 static void print_char(va_list *parguments, char *separator)
 {
-printf("%s%c", separator, va_arg(*parguments, int));
+	printf("%s%c", separator, va_arg(*parguments, int));
 }
 
 /**
@@ -27,7 +19,7 @@ printf("%s%c", separator, va_arg(*parguments, int));
  */
 static void print_int(va_list *parguments, char *separator)
 {
-printf("%s%d", separator, va_arg(*parguments, int));
+	printf("%s%d", separator, va_arg(*parguments, int));
 }
 
 /**
@@ -37,7 +29,7 @@ printf("%s%d", separator, va_arg(*parguments, int));
  */
 static void print_float(va_list *parguments, char *separator)
 {
-printf("%s%f", separator, va_arg(*parguments, double));
+	printf("%s%f", separator, va_arg(*parguments, double));
 }
 
 /**
@@ -47,7 +39,7 @@ printf("%s%f", separator, va_arg(*parguments, double));
  */
 static void print_str(va_list *parguments, char *separator)
 {
-char *str;
+	char *str;
 
 str = va_arg(*parguments, char *);
 
@@ -64,36 +56,35 @@ printf("%s%s", separator, str);
  */
 void print_all(const char * const format, ...)
 {
-    va_list parguments;
-    int index = 0;
-    int dedex = 0;
-    char *separator = "";
+	va_list parguments;
+	int index = 0;
+	int dedex = 0;
+	char *separator = "";
 
-    the_type array[] =
-    {
-        {'c', print_char},
-        {'i', print_int},
-        {'f', print_float},
-        {'s', print_str},
-        {0, NULL}
-    };
-    
-    va_start(parguments, format);
+	the_type array[] = {
+		{'c', print_char},
+		{'i', print_int},
+		{'f', print_float},
+		{'s', print_str},
+		{0, NULL}
+	};
 
-    while (format && format[index])
-    {
-        while (array[dedex].specifier && array[dedex].specifier != format[index])
-        {
-            dedex++;
+	va_start(parguments, format);
+	while (format && format[index])
+	{
+		dedex = 0;
+		while (array[dedex].specifier && array[dedex].specifier != format[index])
+		{
+			dedex++;
 
-            if (array[dedex].specifier)
-            {
-                array[dedex].fn(&parguments, &separator);
-                separator = ", ";
-            }
-        }
-        index++;
-    }
-    printf("\n");
-    va_end(parguments);
+			if (array[dedex].specifier)
+			{
+			array[dedex].fn(&parguments, separator);
+			separator = ", ";
+			}
+		}
+		index++;
+	}
+	printf("\n");
+	va_end(parguments);
 }
