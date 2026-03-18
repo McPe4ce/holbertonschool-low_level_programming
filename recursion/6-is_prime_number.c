@@ -1,10 +1,11 @@
 #include "main.h"
 
-/*
+/**
  * optimus_prime - Checks if n is divisible by any number from 2 to sqrt(n)
  * @n: Number to check
  * @divisor: Current divisor
  *
+ * Description: Recursively checks if n is prime by testing divisibility from 2 up to sqrt(n).
  * Return: 0 if not prime, 1 if prime
  */
 int optimus_prime(int n, int divisor)
@@ -32,4 +33,3 @@ int is_prime_number(int n)
 		return (0);
 	return (optimus_prime(n, 2));
 }
-
