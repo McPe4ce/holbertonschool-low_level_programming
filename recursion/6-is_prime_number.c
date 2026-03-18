@@ -5,7 +5,8 @@
  * @n: Number to check
  * @divisor: Current divisor
  *
- * Description: Recursively checks if n is prime by testing divisibility from 2 up to sqrt(n).
+ * Description: Recursively checks if n is prime 
+ * by testing divisibility from 2 up to sqrt(n).
  * Return: 0 if not prime, 1 if prime
  */
 int optimus_prime(int n, int divisor)
