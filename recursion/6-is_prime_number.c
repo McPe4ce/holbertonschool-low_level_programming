@@ -5,7 +5,7 @@
  * @n: Number to check
  * @divisor: Current divisor
  *
- * Description: Recursively checks if n is prime 
+ * Description: Recursively checks if n is prime
  * by testing divisibility from 2 up to sqrt(n).
  * Return: 0 if not prime, 1 if prime
  */
