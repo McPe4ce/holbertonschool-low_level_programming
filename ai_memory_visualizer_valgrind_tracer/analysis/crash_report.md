@@ -45,6 +45,73 @@ The calling code in `main()` does **not check** whether `allocate_numbers()` ret
 
 ---
 
+## Memory Lifetime Diagram
+
+```
+┌─────────────────────────────────────────────────────┐
+│ main() Stack Frame (CREATED at line 22)             │
+├─────────────────────────────────────────────────────┤
+│                                                       │
+│  Line 25: int *nums = NULL;   ◄── POINTER LIVES     │
+│           int n = 0;                                 │
+│                                                       │
+│  Line 30: nums = allocate_numbers(0)                │
+│           ├─ allocate_numbers: checks if (n <= 0)   │
+│           ├─ YES → return NULL (no malloc)          │
+│           └─ nums still points to NULL              │
+│                                                       │
+│  Line 32: nums[0] = 42;  ◄── CRASH HERE            │
+│           ├─ nums is NULL (invalid pointer value)  │
+│           ├─ Attempt to dereference: *(NULL + 0)   │
+│           ├─ Access to address 0x0 (prohibited)    │
+│           └─ SIGSEGV (segmentation fault)          │
+│                                                       │
+│  Line 36: free(nums);  ◄── UNREACHED              │
+│           (free(NULL) is safe but never executes)   │
+│                                                       │
+│ (DESTROYED when main returns)  ◄── POINTER DIES     │
+└─────────────────────────────────────────────────────┘
+
+KEY OBSERVATION:
+  Pointer lifetime:   ↑ created at line 25 ─────→ destroyed at return
+  Pointee lifetime:   NO POINTEE (allocation never happens due to n=0)
+                      
+  RESULT: Pointer exists but pointee is NULL → dereference undefined
+```
+
+### Pointer Contract Violation
+
+`allocate_numbers()` establishes a contract:
+- **Promise:** Returns valid pointer OR NULL
+- **Condition:** NULL is returned only if `n <= 0`
+- **Caller responsibility:** Must check return value before dereferencing
+
+The crash occurs because **the contract is broken**: the caller ignores the NULL return value and dereferences anyway.
+
+---
+
+## Memory Lifetime & Pointer Relationships
+
+### Pointer Lifetime
+- **`nums` variable created:** Line 25 (`int *nums = NULL`)
+- **`nums` scope:** `main()` function body
+- **`nums` variable destroyed:** When `main()` returns
+- **Duration:** ~13 lines of code (lines 25–37)
+
+### Pointee Lifetime
+| State | Lifetime | Explanation |
+|-------|----------|-------------|
+| **Expected** | Lines 30–36 | If `allocate_numbers(0)` allocated memory, it would live until `free(nums)` |
+| **Actual** | **Never created** | `n=0` → guard condition returns NULL immediately → no allocation |
+| **Result** | `nums` points to NULL | Valid pointer value, but to no valid object |
+
+### Aliasing
+- **No aliasing involved** — `nums` is the only pointer variable in scope
+- The problem is not "two pointers to same memory"
+- The problem is "pointer to no memory at all"
+
+---
+
 ## Category of Undefined Behavior
 
 **Type:** NULL Pointer Dereference (UB #8 in C Standard)
@@ -62,19 +129,12 @@ The calling code in `main()` does **not check** whether `allocate_numbers()` ret
 
 ## AI Explanation Critique
 
-### Common AI Mistakes in Similar Code:
-
-**Mistake 1: "Memory Leak"**
-- ❌ AI might claim: "This code has a memory leak because malloc returns NULL"
-- ✅ Correct: No leak occurs. `nums` is NULL, so line 36 `free(NULL)` is a safe no-op.
+### AI Mistake in Code:
 
 **Mistake 2: "Incomplete Error Handling"**
-- ❌ AI might say: "Add error handling to allocate_numbers()"
+- ❌ AI said: "Add error handling to allocate_numbers()"
 - ✅ Correct: The function *already* has error handling. The bug is in the **caller** (`main`), which ignores the NULL return.
 
-**Mistake 3: "Off-by-one Error"**
-- ❌ AI might suggest: "The loop boundary is wrong"
-- ✅ Correct: No loop error. The crash occurs before any allocation happens.
 
 **Correct AI Analysis Would State:**
 1. `allocate_numbers(0)` is designed to return NULL for invalid input
