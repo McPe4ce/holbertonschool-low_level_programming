@@ -1,11 +1,16 @@
 #include "lists.h"
 #include <stdlib.h>
 
+/**
+ * add_dnodeint - Function that adds a node at the start of the list
+ * @head: Pointer to the pointer to the first node of the list
+ * @n: Pointer that stores the integer
+ * Return: new node (Returns the new node)
+ */
 
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t *new_node;
-	int counter;
 
 	if (head == NULL)
 	{
@@ -20,7 +25,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	}
 
 	new_node->n = n;
-	
+
 	new_node->next = *head;
 	new_node->prev = NULL;
 
