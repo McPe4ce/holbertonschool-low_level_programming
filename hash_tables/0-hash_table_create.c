@@ -33,5 +33,6 @@ hash_table_t *hash_table_create(unsigned long int size)
 	{
 		theTABLE->array[indexor] = NULL;
 	}
+
 	return (theTABLE);
 }
