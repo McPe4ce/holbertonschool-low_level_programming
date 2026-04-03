@@ -28,13 +28,15 @@ int append_text_to_file(const char *filename, char *text_content)
 		return (1);
 	}
 
-		decepticon = open(filename, O_WRONLY | O_APPEND);
+	decepticon = open(filename, O_WRONLY | O_APPEND);
 	if (decepticon == -1)
+	{
 		return (-1);
+	}
 
-		while (text_content[length])
+	length = 0;
+	while (text_content[length])
 		length++;
-
 
 	byteme = write(decepticon, text_content, length);
 
