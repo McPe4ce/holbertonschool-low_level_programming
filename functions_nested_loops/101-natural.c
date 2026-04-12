@@ -4,6 +4,7 @@
 /**
  * main - Prints the sum of all the numbers under 1024
  * that are multiples of 3 and 5
+ * Return: 0
  */
 int main(void)
 {
